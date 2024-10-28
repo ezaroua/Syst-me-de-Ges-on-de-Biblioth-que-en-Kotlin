@@ -1,0 +1,63 @@
+# Système de Gestion de Bibliothèque en Kotlin
+
+Ce projet est un système de gestion de bibliothèque développé en Kotlin. Il permet d'emprunter, de retourner, et de consulter différents types de médias tels que des livres, magazines, journaux, enregistrements audio, et DVD. Ce projet démontre l'utilisation de la programmation orientée objet, d'interfaces génériques et de la manipulation de collections en Kotlin.
+
+## Fonctionnalités
+
+Le système de gestion de bibliothèque permet :
+
+- **Emprunter et retourner des médias** : Les utilisateurs peuvent emprunter ou retourner des médias disponibles (Livres, Audios, DVD).
+- **Consulter des médias sur place** : Permet de consulter des médias sans les emporter (Livres, Magazines, Journaux).
+- **Suivi des emprunts en cours** : Garder une trace des médias actuellement empruntés.
+- **Gestion des informations de base sur les médias** : Gérer et afficher des informations telles que le titre, l'auteur, la date de parution et d'autres spécificités relatives au type de média.
+
+## Structure du Projet
+
+### Partie 1 : Couche Métier
+
+- **Classe abstraite `Media`** : Représente un média avec un titre et une date de parution.
+- **Interfaces `Empruntable` et `Consultable`** : Définissent les actions possibles pour emprunter/retourner et consulter des médias.
+- **Classes de médias spécifiques** : `Livre`, `Magazine`, `Journal`, `EnregistrementAudio`, `DVD`.
+
+### Partie 2 : Couche Accès aux Données
+
+- **Classe `Bibliotheque`** : Gère la collection de médias, avec des méthodes pour ajouter, emprunter, retourner et consulter des médias.
+
+### Partie 3 : Couche de Présentation
+
+- **Fonction `main`** : Simule l'interaction avec la bibliothèque (ajout de médias, emprunt, retour et consultation).
+
+## Installation et Exécution
+
+### Prérequis
+
+- Kotlin 1.5 ou supérieur installé
+- Un IDE supportant Kotlin (IntelliJ IDEA recommandé)
+
+### Étapes d'Installation
+
+1. Clonez ce dépôt ou téléchargez le fichier ZIP :
+    ```bash
+    git clone <URL_DU_DEPOT>
+    ```
+2. Ouvrez le projet dans votre IDE.
+3. Exécutez le fichier `Main.kt` pour tester l'application.
+
+### Utilisation
+
+Le fichier `Main.kt` contient des exemples d'opérations de gestion de bibliothèque, y compris l'ajout de différents types de médias, l'emprunt, le retour et la consultation.
+
+Exemple de code :
+```kotlin
+fun main() {
+    val bibliotheque = Bibliotheque()
+    val livre = Livre("1984", "1972-01-01", "George Orwell", "Gallimard")
+    val dvd = DVD("Inception", 8880, "Action", "2010-01-01")
+
+    bibliotheque.ajouterMedia(livre)
+    bibliotheque.ajouterMedia(dvd)
+
+    bibliotheque.emprunter(livre)
+    bibliotheque.consulter(dvd)
+    bibliotheque.afficherEmprunts()
+}
